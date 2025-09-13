@@ -1,6 +1,6 @@
 name: Wyoming Cloud Streamer
 slug: wyoming_cloud_streamer
-version: "0.1.4"
+version: "0.0.1"
 description: Wyoming server using Google Cloud Text-to-Speech (streaming)
 arch: [amd64, aarch64, armv7]
 init: false
