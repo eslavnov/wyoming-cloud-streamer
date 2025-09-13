@@ -15,5 +15,6 @@ RUN pip install --no-cache-dir . \
 
 # s6 service (provides /etc/services.d/wyoming/run)
 COPY rootfs/ /
+RUN sed -i 's/\r$//' /etc/services.d/wyoming/run && chmod +x /etc/services.d/wyoming/run
 
 ENV PYTHONUNBUFFERED=1
