@@ -1,0 +1,44 @@
+[project]
+name = "wyoming-cloud-streamer"
+version = "1.0.0"
+description = "Wyoming protocol server for cloud TTS engines."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Michael Hansen", email = "mike@rhasspy.org"},
+    {name = "Evgeny Slavnov", email = "eslavnov@gmail.com"}
+]
+keywords = ["rhasspy", "wyoming", "cloud", "tts"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Text Processing :: Linguistic",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "wyoming>=1.7.2,<1.8",
+    "regex==2024.11.6",
+    "sentence-stream==1.1.0",
+    "google-cloud-texttospeech==2.29.0",
+    "openai>=1.40"
+]
+
+[project.urls]
+Homepage = "https://github.com/eslavnov/wyoming-cloud-streamer"
+
+[project.scripts]
+wyoming-cloud-streamer = "wyoming_cloud_streamer.__main__:run"
+
+[tool.setuptools.packages.find]
+include = ["wyoming_cloud_streamer"]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+

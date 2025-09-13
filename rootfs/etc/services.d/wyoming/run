@@ -1,0 +1,34 @@
+#!/usr/bin/with-contenv bash
+set -euo pipefail
+
+# Read add-on options
+CONFIG_PATH=/data/options.json
+
+host=$(jq -r '.host // "0.0.0.0"' "$CONFIG_PATH")
+port=$(jq -r '.port // 10200' "$CONFIG_PATH")
+voice=$(jq -r '.voice // "en-US-Chirp3-HD-Charon"' "$CONFIG_PATH")
+sample_rate=$(jq -r '.sample_rate // 22050' "$CONFIG_PATH")
+language=$(jq -r '.language // "en-US"' "$CONFIG_PATH")
+speaking_rate=$(jq -r '.speaking_rate // 1.0' "$CONFIG_PATH")
+pitch=$(jq -r '.pitch // 0.0' "$CONFIG_PATH")
+streaming=$(jq -r '.streaming // true' "$CONFIG_PATH")
+creds=$(jq -r '.gcp_credentials_path // "/config/google/tts-sa.json"' "$CONFIG_PATH")
+openai_key=$(jq -r '.openai_api_key // ""' "$CONFIG_PATH")
+openai_model=$(jq -r '.openai_model // "gpt-4o-mini-tts"' "$CONFIG_PATH")
+
+# Export settings
+export GOOGLE_APPLICATION_CREDENTIALS="$creds"
+export OPENAI_API_KEY="${openai_key}"
+export OPENAI_TTS_MODEL="$openai_model"
+
+# Optional: sanity check
+if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+  echo "ERROR: Google credentials not found at $GOOGLE_APPLICATION_CREDENTIALS" >&2
+  exit 1
+fi
+
+# Launch your modified Wyoming server.
+exec python -m wyoming_cloud_streamer \
+  --uri "tcp://${host}:${port}" \
+  --streaming \
+  --debug

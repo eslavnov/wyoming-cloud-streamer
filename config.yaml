@@ -1,0 +1,29 @@
+name: Wyoming Cloud Streamer
+slug: wyoming_cloud_streamer
+version: "0.1.4"
+description: Wyoming server using Google Cloud Text-to-Speech (streaming)
+arch: [amd64, aarch64, armv7]
+init: false
+startup: application
+boot: auto
+ingress: false
+host_network: false
+ports:
+  "10200/tcp": 10200
+map:
+  - config:rw
+
+build_from:
+  amd64: ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.20
+  aarch64: ghcr.io/home-assistant/aarch64-base-python:3.12-alpine3.20
+  armv7: ghcr.io/home-assistant/armv7-base-python:3.12-alpine3.20
+
+schema:
+  gcp_credentials_path: str?
+  openai_model: str? 
+  openai_api_key: password?
+
+options:
+  gcp_credentials_path: "/config/SERVICE_ACCOUNT.json"
+  openai_model: "gpt-4o-mini-tts"
+  openai_api_key: ""

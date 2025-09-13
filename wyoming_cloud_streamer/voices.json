@@ -1,0 +1,10 @@
+{
+    "google": {
+        "voices":["Achernar", "Achird", "Algenib", "Algieba", "Alnilam", "Aoede", "Autonoe", "Callirrhoe", "Charon", "Despina", "Enceladus", "Erinome", "Fenrir", "Gacrux", "Iapetus", "Kore", "Laomedeia", "Leda", "Orus", "Pulcherrima", "Puck", "Rasalgethi", "Sadachbia", "Sadaltager", "Schedar", "Sulafat", "Umbriel", "Vindemiatrix", "Zephyr", "Zubenelgenubi"],
+        "languages": ["ar-XA", "bn-IN", "da-DK", "nl-BE", "nl-NL", "en-AU", "en-IN", "en-GB", "en-US", "fi-FI", "fr-CA", "fr-FR", "de-DE", "gu-IN", "hi-IN", "id-ID", "it-IT", "ja-JP", "kn-IN", "ko-KR", "ml-IN", "cmn-CN", "mr-IN", "nb-NO", "pl-PL", "pt-BR", "ru-RU", "es-ES", "es-US", "sw-KE", "sv-SE", "ta-IN", "te-IN", "th-TH", "tr-TR", "uk-UA", "ur-IN", "vi-VN"]
+    },
+    "openai":{
+        "voices":["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"],
+        "languages": ["af-ZA","ar-SA","hy-AM","az-AZ","be-BY","bs-BA","bg-BG","ca-ES","zh-CN","hr-HR","cs-CZ","da-DK","nl-NL","en-US","et-EE","fi-FI","fr-FR","gl-ES","de-DE","el-GR","he-IL","hi-IN","hu-HU","is-IS","id-ID","it-IT","ja-JP","kn-IN","kk-KZ","ko-KR","lv-LV","lt-LT","mk-MK","ms-MY","mr-IN","mi-NZ","ne-NP","no-NO","fa-IR","pl-PL","pt-PT","ro-RO","ru-RU","sr-RS","sk-SK","sl-SI","es-ES","sw-KE","sv-SE","tl-PH","ta-IN","th-TH","tr-TR","uk-UA","ur-PK","vi-VN","cy-GB"]
+    }
+}
