@@ -2,7 +2,7 @@
 
 [Wyoming protocol](https://github.com/rhasspy/wyoming) server for cloud TTS engines (for now, it supports only Google Cloud and OpenAI).
 
-Enables streaming responses from cloud providers, so you don't have to wait for the LLM response/full-text TTS to finish to hear a response. Instead, the audio starts to stream almost immediately. 
+Ask ChatGPT to tell you a long story, and you will hear the response audio almost immediately instead of waiting for the whole pipeline to finish.
 
 Works with Home Assistant Voice Preview Edition (HAVPE) devices. 
 
