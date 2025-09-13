@@ -88,9 +88,10 @@ class CloudStreamerEventHandler(AsyncEventHandler):
                 assert self._synthesize is not None
                 stream_chunk = SynthesizeChunk.from_event(event)
 
-                # For minimal-latency you could push chunks directly to engines here
-                # but to keep parity with your current behavior, feed by sentence:
+                # To keep parity with wyoming-piper current behavior, feed by sentence:
                 for sentence in self.sbd.add_chunk(stream_chunk.text):
+                    if sentence.strip() == "":
+                        return True
                     self._synthesize.text = sentence
                     await self._synthesize_with_engine(
                         sentence,
