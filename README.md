@@ -1,40 +1,28 @@
 # Wyoming Cloud Streamer
 
-[Wyoming protocol](https://github.com/rhasspy/wyoming) server for cloud TTS engines.
+[Wyoming protocol](https://github.com/rhasspy/wyoming) server for cloud TTS engines (for now, it supports only Google Cloud and OpenAI).
+
+Enables streaming responses from cloud providers, so you don't have to wait for the LLM response/full-text TTS to finish to hear a response. Instead, the audio starts to stream almost immediately. 
+
+Works with Home Assistant Voice Preview Edition (HAVPE) devices. 
 
 This project builds on [wyoming-piper](https://github.com/rhasspy/wyoming-piper) by Michael Hansen, licensed under MIT.
 
-## Home Assistant Add-on
-
-[![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_piper)
-
-[Source](https://github.com/home-assistant/addons/tree/master/piper)
 
 ## Getting started
 
-1. Install the add-on:
+1. Add the repository and install Wyoming Cloud Streamer from the Add-on store:
 
-    ``` sh
-    git clone https://github.com/rhasspy/wyoming-piper.git
-    cd wyoming-piper
-    script/setup
-    ```
+    [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Feslavnov%2Fwyoming-cloud-streamer)
 
 1. Configure Wyoming Cloud Streamer addon settings:
-    ```
-    GCP credentials for Google Cloud TTS
-    Open AI API key for openAI TTS
-    The rest can be left as defaults
-    ```
+    1. To use Google Cloud TTS, you need a service account json from Google Cloud. Follow [these instructions](https://www.home-assistant.io/integrations/google_cloud/#obtaining-service-account-file), you need only text-to-speech. Set the correct path in the addon settings (the default is `/config/SERVICE_ACCOUNT.json`)
+    2. To use OpenAI, you need an API key, [get it here](https://platform.openai.com/settings/organization/api-keys)
 
-1. Configure Wyoming Protocol in HASS
-    ```
-    Settings => Integrations => Add Integration => Wyoming Protocol
-    Add ip/hostname and port (default is 10200)
-    ```
+1. Configure Wyoming Protocol in Home Assistant:
+    1. Go to Settings => Integrations => Add Integration => Wyoming Protocol
+    2. Add ip/hostname (you can use `127.0.0.1`) and port (the default one is `10200`)
 
-1. Add Wyoming Cloud Streamer to Voice Assistant in HASS
-    ```
-    Settings => Voice Assistant => select your assitant => Text-to-speech => Wyoming Cloud Streamer
-    Select the desired voice and language settings and you are good to go!
-    ```
+1. Add Wyoming Cloud Streamer to Voice assistants:
+    1. Go to Settings => Voice assistants => choose your assistant => Text-to-speech => Cloud TTS Streamer
+    2. Select the desired voice and language, and you are good to go!
