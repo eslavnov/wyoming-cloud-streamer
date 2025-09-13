@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2023 Michael Hansen
+
 Copyright (c) 2025 Evgeny Slavnov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
