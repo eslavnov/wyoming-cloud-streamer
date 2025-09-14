@@ -4,12 +4,11 @@ FROM ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.20
 # Small runtime tools used by the run script
 RUN apk add --no-cache bash jq curl
 
-# Bring in your code + add-on files
+# Bring in code + add-on files
 WORKDIR /app
 COPY . /app
 
-# Install your code and deps
-# If you don't have pyproject.toml/setup.py, comment "pip install ." and just install deps.
+# Install code and deps
 RUN pip install --no-cache-dir . \
  && pip install --no-cache-dir google-cloud-texttospeech
 
