@@ -13,10 +13,12 @@ ports:
 map:
   - config:rw
 
-build_from:
-  amd64: ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.20
-  aarch64: ghcr.io/home-assistant/aarch64-base-python:3.12-alpine3.20
-  armv7: ghcr.io/home-assistant/armv7-base-python:3.12-alpine3.20
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
 
 schema:
   gcp_credentials_path: str?
