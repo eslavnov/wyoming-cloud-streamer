@@ -83,7 +83,7 @@ async def main() -> None:
                 name="Cloud TTS Streamer",
                 description="Wyoming streaming proxy for cloud TTS providers",
                 attribution=Attribution(
-                    name="rhasspy", url="https://github.com/rhasspy/piper"
+                    name="eslavnov", url="https://github.com/eslavnov/wyoming-cloud-streamer"
                 ),
                 installed=True,
                 voices=sorted(voices, key=lambda v: v.name),
