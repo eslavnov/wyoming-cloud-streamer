@@ -1,5 +1,5 @@
-# Hardcode a HA Python base so pip is present and s6 overlay is available
-FROM ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.20
+ARG BUILD_ARCH
+FROM ghcr.io/home-assistant/${BUILD_ARCH}-base-python:3.12-alpine3.20
 
 # Small runtime tools used by the run script
 RUN apk add --no-cache bash jq curl
