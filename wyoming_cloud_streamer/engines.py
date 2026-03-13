@@ -79,7 +79,10 @@ class OpenAITTSEngine(BaseTTSEngine):
     async def stream(
         self, text: str, voice_name: str, cli_args
     ) -> AsyncGenerator[Tuple[str, object], None]:
-        client = OpenAI()
+        base_url = os.getenv("OPENAI_BASE_URL")
+        # Allow using a local OpenAI-compatible endpoint (e.g., MOSS-TTS) by setting OPENAI_BASE_URL.
+        # Example: OPENAI_BASE_URL=http://127.0.0.1:8880/v1
+        client = OpenAI(base_url=base_url) if base_url else OpenAI()
         voice = self._parse_voice(voice_name)
 
         # Resolve model precedence: ENV > default

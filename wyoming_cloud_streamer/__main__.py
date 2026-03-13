@@ -44,8 +44,20 @@ async def main() -> None:
     _LOGGER.debug(args)
 
 
+    # Voice list
+    # Default voices are loaded from voices.json.
+    # For OpenAI(-compatible) endpoints that support custom voices but don't expose discovery,
+    # you can override the advertised OpenAI voices via env var:
+    #   OPENAI_TTS_VOICES=Will_Default,will
     with open("/app/wyoming_cloud_streamer/voices.json", "r", encoding="utf-8") as f:
         voices_data = json.load(f)
+
+    override_openai_voices = os.getenv("OPENAI_TTS_VOICES", "").strip()
+    if override_openai_voices:
+        voices_data.setdefault("openai", {}).setdefault("voices", [])
+        voices_data["openai"]["voices"] = [
+            v.strip() for v in override_openai_voices.split(",") if v.strip()
+        ]
 
     voices = []
     for key in voices_data.keys():
